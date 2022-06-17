@@ -1,3 +1,4 @@
+/// <reference types="node" />
 import * as ShopifyErrors from './error';
 export declare const Shopify: {
     Context: import("./context").ContextInterface;
@@ -14,10 +15,6 @@ export declare const Shopify: {
         Session: typeof import("./auth/session/session").Session;
         MemorySessionStorage: typeof import("./auth/session").MemorySessionStorage;
         CustomSessionStorage: typeof import("./auth/session").CustomSessionStorage;
-        MySQLSessionStorage: typeof import("./auth/session").MySQLSessionStorage;
-        MongoDBSessionStorage: typeof import("./auth/session").MongoDBSessionStorage;
-        RedisSessionStorage: typeof import("./auth/session").RedisSessionStorage;
-        SQLiteSessionStorage: typeof import("./auth/session").SQLiteSessionStorage;
     };
     Clients: {
         Rest: typeof import("./clients/rest/rest_client").RestClient;
