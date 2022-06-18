@@ -9,7 +9,7 @@ export interface ContextParams {
     API_VERSION: ApiVersion;
     IS_EMBEDDED_APP: boolean;
     IS_PRIVATE_APP?: boolean;
-    SESSION_STORAGE?: SessionStorage;
+    SESSION_STORAGE: SessionStorage;
     LOG_FILE?: string;
     USER_AGENT_PREFIX?: string;
     PRIVATE_APP_STOREFRONT_ACCESS_TOKEN?: string;

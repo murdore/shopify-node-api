@@ -1,8 +1,5 @@
-import path from 'path';
-
 import * as ShopifyErrors from './error';
 import {SessionStorage} from './auth/session/session_storage';
-import {SQLiteSessionStorage} from './auth/session/storage/sqlite';
 import {ApiVersion, ContextParams} from './base-types';
 import {AuthScopes} from './auth/scopes';
 
@@ -28,11 +25,6 @@ interface ContextInterface extends ContextParams {
    */
   throwIfPrivateApp(message: string): void | never;
 }
-
-const dbFile = path.join(
-  require.main ? path.dirname(require.main.filename) : process.cwd(),
-  'database.sqlite',
-);
 
 const Context: ContextInterface = {
   API_KEY: '',
@@ -85,8 +77,7 @@ const Context: ContextInterface = {
     this.API_VERSION = params.API_VERSION;
     this.IS_EMBEDDED_APP = params.IS_EMBEDDED_APP;
     this.IS_PRIVATE_APP = params.IS_PRIVATE_APP;
-    this.SESSION_STORAGE =
-      params.SESSION_STORAGE ?? new SQLiteSessionStorage(dbFile);
+    this.SESSION_STORAGE = params.SESSION_STORAGE;
 
     if (params.HOST_SCHEME) {
       this.HOST_SCHEME = params.HOST_SCHEME;
